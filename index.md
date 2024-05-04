@@ -355,8 +355,140 @@ function fizzBuzz(number) {
 fizzBuzz('ketnaka');
 ```
 ## Ex 4
+* Demerit points
+* If speed = 70 display 'Ok'
+* For every 5km increase 1 point
+* use Math.floor
+* If more than 12 points display 'License Suspended'
+```
+function checkSpeed (speed){
+    const speedLimit = 70;
+    const kmPerPoint = 5;
 
+    if (speed < speedLimit + kmPerPoint) console.log('Ok');
+    else {
+        const points = Math.floor((speed - speedLimit) / kmPerPoint);
+        if (points <= 12) console.log('Points', points);
+        else console.log('License Suspended');
+    }
+}
+
+checkSpeed(74)
 ```
 
+## Ex 5
+* Show numbers and display Even or Odd
+```
+function showNumbers(limit) {
+    for (let i = 0; i <= limit; i++) {
+        if (i % 2 === 0) console.log(i, 'Even');
+            
+        else console.log(i, 'Odd');    
+    } 
+}showNumbers(10)
 ```
 
+## Ex 6
+*count truthy element in the array
+```
+const array = [0, null, undefined, '', 2, 3];
+console.log(countTruthy(array));
+
+function countTruthy (array){
+    let count = 0;
+
+    for (let value of array)
+        if (value) 
+            count++;
+    return count;
+}
+```
+
+## Ex 7
+```
+function showProperties (obj) {
+    for (let key in obj){
+        if (typeof obj[key] === 'string')
+            console.log(key, obj[key]);
+    }
+}
+
+let obj = {
+    title: 'a',
+    year: 2019,
+    director: 'b'
+}
+
+showProperties(obj)
+```
+
+## Ex 8
+* Sums of multiple of 3 and 5
+```
+function sum (limit){
+    let sum = 0;
+
+    for (let index = 0; index <= limit; index++) 
+        if (index % 3 === 0 || index % 5 === 0)
+            sum += index;
+    
+    return sum;
+}
+console.log(sum(10));
+```
+
+## Ex 9
+* Calculate grade of students
+```
+function calculateGrade(marks){
+    const average = calculateAverage(marks);
+    if (average < 60) return 'F';
+    if (average < 70) return 'D';
+    if (average < 80) return 'C';
+    if (average < 90) return 'B';
+    return 'A';
+}
+
+function calculateAverage(array){
+    let sum = 0;
+    for (let value of array)
+        sum += value;
+    return sum / array.length;
+}
+
+marks = [100,20,30];
+console.log(calculateGrade(marks));
+```
+## Ex 10
+*Stars
+```
+function showStars(rows){
+    for (let row = 1; row <= rows; row++){
+        let pattern = '';
+
+        for (let i = 0; i < row; i++)
+            pattern += '*';
+    console.log(pattern);
+    }
+}
+
+showStars(10)
+```
+
+## Ex 11
+```
+function showPrimes(limit){
+    for (let number = 2; number <= limit; number ++)
+        if (isPrime (number)) console.log(number);
+}
+
+function isPrime (number){
+    for (let factor =2; factor < number; factor++)
+        if (number % factor ===0)
+            return false;
+    
+    return true;
+}
+
+showPrimes(20)
+```
